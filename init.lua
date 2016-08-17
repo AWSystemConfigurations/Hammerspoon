@@ -5,7 +5,7 @@ end)
 hs.alert.show("Config loaded")
 
 --Settings--
-hs.window.animationDuration = 0.05
+hs.window.animationDuration = 0.0
 hs.dockicon.hide()
 laptopScreen = "Color LCD"
 
@@ -152,14 +152,49 @@ hs.hotkey.bind({"cmd", "alt", "ctrl"}, "K", function()
 end)
 
 --Special Layouts--
+local topHalf = hs.geometry(0, 0, 1, 0.5)
+local bottomHalf = hs.geometry(0.5, 0, 1, 0.5)
+local topLeft = hs.geometry(0, 0, 0.5, 0.5)
+local bottomRight = hs.geometry(0.5, 0, 0.5, 0.5)
+local topRight = hs.geometry(0.5, 0.5, 0.5, 0.5)
+local bottomLeft = hs.geometry(0, 0.5, 0.5, 0.5)
+
+
+function appToFront(_app)
+    local app = hs.appfinder.appFromName(_app)
+    if not app then
+      hs.application.launchOrFocus(_app)
+    end
+    local mainwin = app:mainWindow()
+    mainwin:focus()
+end
+
 local layout1 = {
-  {"iTerm2", nil, laptopScreen, hs.layout.right50, nil, nil},
-  {"Atom", nil, laptopScreen, hs.layout.left50, nil, nil},
+  {"iTerm2", nil, laptopScreen, topLeft, nil, nil},
+  {"Atom", nil, laptopScreen, bottomLeft, nil, nil},
+  {"Google Chrome", nil, laptopScreen, hs.layout.right50, nil, nil},
+
+}
+
+local layout2 = {
+  {"Messages", nil, laptopScreen, topRight, nil, nil},
+  {"Slack", nil, laptopScreen, bottomRight, nil, nil},
+  {"Atom", nil, laptopScreen, topLeft, nil, nil},
+  {"Mail", nil, laptopScreen, bottomLeft, nil, nil},
 }
 
 --Screen layout key bindings--
 hs.hotkey.bind({"cmd", "alt", "ctrl"}, "0", function()
-  hs.application.launchOrFocus("iTerm2")
-  hs.application.launchOrFocus("Atom")
+  appToFront("iTerm2")
+  appToFront("Atom")
+  appToFront("Google Chrome")
   hs.layout.apply(layout1)
+end)
+
+hs.hotkey.bind({"cmd", "alt", "ctrl"}, "9", function()
+  appToFront("Messages")
+  appToFront("Slack")
+  appToFront("Atom")
+  appToFront("Mail")
+  hs.layout.apply(layout2)
 end)
