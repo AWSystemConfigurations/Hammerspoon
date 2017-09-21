@@ -8,6 +8,9 @@ hs.alert.show("Config loaded")
 hs.window.animationDuration = 0.0
 hs.dockicon.hide()
 laptopScreen = "Color LCD"
+workMonitor = "G226HQL"
+workMonitor2 = "DELL P2213"
+
 
 --WINDOW MOVEMENT--
 
@@ -123,6 +126,132 @@ hs.hotkey.bind({"cmd", "alt", "ctrl"}, ".", function()
   win:setFrame(f)
 end)
 
+--P1--
+hs.hotkey.bind({"cmd", "alt"}, "1", function()
+  local win = hs.window.focusedWindow()
+  local f = win:frame()
+  local screen = win:screen()
+  local max = screen:frame()
+
+  f.x = 0
+  f.y = 0
+  f.w = max.w / 3
+  f.h = max.h / 3
+  win:setFrame(f)
+end)
+
+--P2--
+hs.hotkey.bind({"cmd", "alt"}, "2", function()
+  local win = hs.window.focusedWindow()
+  local f = win:frame()
+  local screen = win:screen()
+  local max = screen:frame()
+
+  f.x = max.w / 3
+  f.y = 0
+  f.w = max.w / 3
+  f.h = max.h / 3
+  win:setFrame(f)
+end)
+
+--P3--
+hs.hotkey.bind({"cmd", "alt"}, "3", function()
+  local win = hs.window.focusedWindow()
+  local f = win:frame()
+  local screen = win:screen()
+  local max = screen:frame()
+
+  f.x = (max.w / 3) * 2
+  f.y = 0
+  f.w = max.w / 3
+  f.h = max.h / 3
+  win:setFrame(f)
+end)
+
+--P4--
+hs.hotkey.bind({"cmd", "alt"}, "4", function()
+  local win = hs.window.focusedWindow()
+  local f = win:frame()
+  local screen = win:screen()
+  local max = screen:frame()
+
+  f.x = 0
+  f.y = max.h / 3
+  f.w = max.w / 3
+  f.h = max.h / 3
+  win:setFrame(f)
+end)
+
+--P5--
+hs.hotkey.bind({"cmd", "alt"}, "5", function()
+  local win = hs.window.focusedWindow()
+  local f = win:frame()
+  local screen = win:screen()
+  local max = screen:frame()
+
+  f.x = max.w / 3
+  f.y = max.h / 3
+  f.w = max.w / 3
+  f.h = max.h / 3
+  win:setFrame(f)
+end)
+
+--P6--
+hs.hotkey.bind({"cmd", "alt"}, "6", function()
+  local win = hs.window.focusedWindow()
+  local f = win:frame()
+  local screen = win:screen()
+  local max = screen:frame()
+
+  f.x = (max.w / 3) * 2
+  f.y = max.h / 3
+  f.w = max.w / 3
+  f.h = max.h / 3
+  win:setFrame(f)
+end)
+
+--P7--
+hs.hotkey.bind({"cmd", "alt"}, "7", function()
+  local win = hs.window.focusedWindow()
+  local f = win:frame()
+  local screen = win:screen()
+  local max = screen:frame()
+
+  f.x = 0
+  f.y = (max.h / 3) * 2
+  f.w = max.w / 3
+  f.h = max.h / 3
+  win:setFrame(f)
+end)
+
+--P8--
+hs.hotkey.bind({"cmd", "alt"}, "8", function()
+  local win = hs.window.focusedWindow()
+  local f = win:frame()
+  local screen = win:screen()
+  local max = screen:frame()
+
+  f.x = max.h / 3
+  f.y = (max.h / 3) * 2
+  f.w = max.w / 3
+  f.h = max.h / 3
+  win:setFrame(f)
+end)
+
+--P9--
+hs.hotkey.bind({"cmd", "alt"}, "9", function()
+  local win = hs.window.focusedWindow()
+  local f = win:frame()
+  local screen = win:screen()
+  local max = screen:frame()
+
+  f.x = (max.h / 3) * 2
+  f.y = (max.h / 3) * 2
+  f.w = max.w / 3
+  f.h = max.h / 3
+  win:setFrame(f)
+end)
+
 --100% Center--
 hs.hotkey.bind({"cmd", "alt", "ctrl"}, "Return", function()
   local win = hs.window.focusedWindow()
@@ -151,6 +280,93 @@ hs.hotkey.bind({"cmd", "alt", "ctrl"}, "K", function()
   win:setFrame(f)
 end)
 
+--Magnify Up--
+hs.hotkey.bind({"cmd", "alt", "ctrl"}, "]", function()
+  local win = hs.window.focusedWindow()
+  local f = win:frame()
+  local screen = win:screen()
+  local max = screen:frame()
+
+  f.x = f.x - 10
+  f.y = f.y - 10
+  f.w = f.w + 20
+  f.h = f.h + 20
+  win:setFrame(f)
+end)
+
+--Magnify Down--
+hs.hotkey.bind({"cmd", "alt", "ctrl"}, "[", function()
+  local win = hs.window.focusedWindow()
+  local f = win:frame()
+  local screen = win:screen()
+  local max = screen:frame()
+
+  f.x = f.x + 10
+  f.y = f.y + 10
+  f.w = f.w - 20
+  f.h = f.h - 20
+  win:setFrame(f)
+end)
+
+--Nudge Right--
+hs.hotkey.bind({"cmd", "alt", "ctrl"}, "Right", function()
+  local win = hs.window.focusedWindow()
+  local f = win:frame()
+  local screen = win:screen()
+  local max = screen:frame()
+
+  f.x = f.x + 20
+  win:setFrame(f)
+end)
+
+--Nudge Left--
+hs.hotkey.bind({"cmd", "alt", "ctrl"}, "Left", function()
+  local win = hs.window.focusedWindow()
+  local f = win:frame()
+  local screen = win:screen()
+  local max = screen:frame()
+
+  f.x = f.x - 20
+  win:setFrame(f)
+end)
+
+--Nudge Up--
+hs.hotkey.bind({"cmd", "alt", "ctrl"}, "Up", function()
+  local win = hs.window.focusedWindow()
+  local f = win:frame()
+  local screen = win:screen()
+  local max = screen:frame()
+
+  f.y = f.y - 20
+  win:setFrame(f)
+end)
+
+--Nudge Down--
+hs.hotkey.bind({"cmd", "alt", "ctrl"}, "Down", function()
+  local win = hs.window.focusedWindow()
+  local f = win:frame()
+  local screen = win:screen()
+  local max = screen:frame()
+
+  f.y = f.y + 20
+  win:setFrame(f)
+end)
+
+--Handoff to Work Monitor--
+hs.hotkey.bind({"cmd", "ctrl"}, "Right", function()
+  local win = hs.window.focusedWindow()
+  local f = win:frame()
+  win:moveToScreen(workMonitor2)
+  win:moveToScreen(workMonitor)
+end)
+
+--handoff to Laptop--
+hs.hotkey.bind({"cmd", "ctrl"}, "Left", function()
+  local win = hs.window.focusedWindow()
+  local f = win:frame()
+  win:moveToScreen(laptopScreen)
+end)
+
 --Special Layouts--
 local topHalf = hs.geometry(0, 0, 1, 0.5)
 local bottomHalf = hs.geometry(0.5, 0, 1, 0.5)
@@ -172,7 +388,12 @@ end
 local layout1 = {
   {"iTerm2", nil, laptopScreen, topLeft, nil, nil},
   {"Atom", nil, laptopScreen, bottomLeft, nil, nil},
-  {"Google Chrome", nil, laptopScreen, hs.layout.right50, nil, nil},
+  {"Google Chrome", 
+  nil, 
+  laptopScreen, 
+  hs.layout.right50, 
+  nil, 
+  nil},
 
 }
 
@@ -195,6 +416,5 @@ hs.hotkey.bind({"cmd", "alt", "ctrl"}, "9", function()
   appToFront("Messages")
   appToFront("Slack")
   appToFront("Atom")
-  appToFront("Mail")
   hs.layout.apply(layout2)
 end)
