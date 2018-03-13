@@ -8,8 +8,6 @@ hs.alert.show("Config loaded")
 hs.window.animationDuration = 0.0
 hs.dockicon.hide()
 laptopScreen = "Color LCD"
-workMonitor = "G226HQL"
-workMonitor2 = "DELL P2213"
 
 
 --WINDOW MOVEMENT--
@@ -356,15 +354,14 @@ end)
 hs.hotkey.bind({"cmd", "ctrl"}, "Right", function()
   local win = hs.window.focusedWindow()
   local f = win:frame()
-  win:moveToScreen(workMonitor2)
-  win:moveToScreen(workMonitor)
+  win:moveOneScreenEast()
 end)
 
 --handoff to Laptop--
 hs.hotkey.bind({"cmd", "ctrl"}, "Left", function()
   local win = hs.window.focusedWindow()
   local f = win:frame()
-  win:moveToScreen(laptopScreen)
+  win:moveOneScreenWest()
 end)
 
 --Special Layouts--
@@ -388,11 +385,11 @@ end
 local layout1 = {
   {"iTerm2", nil, laptopScreen, topLeft, nil, nil},
   {"Atom", nil, laptopScreen, bottomLeft, nil, nil},
-  {"Google Chrome", 
-  nil, 
-  laptopScreen, 
-  hs.layout.right50, 
-  nil, 
+  {"Google Chrome",
+  nil,
+  laptopScreen,
+  hs.layout.right50,
+  nil,
   nil},
 
 }
