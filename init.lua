@@ -271,10 +271,10 @@ hs.hotkey.bind({"cmd", "alt", "ctrl"}, "K", function()
   local screen = win:screen()
   local max = screen:frame()
 
-  f.x = max.x + 100
-  f.y = max.y + 100
-  f.w = max.w - 200
-  f.h = max.h - 200
+  f.x = max.x + 50
+  f.y = max.y + 50
+  f.w = max.w - 100
+  f.h = max.h - 100
   win:setFrame(f)
 end)
 
@@ -350,18 +350,32 @@ hs.hotkey.bind({"cmd", "alt", "ctrl"}, "Down", function()
   win:setFrame(f)
 end)
 
---Handoff to Work Monitor--
-hs.hotkey.bind({"cmd", "ctrl"}, "Right", function()
+--Handoff to Upper Monitor--
+hs.hotkey.bind({"cmd", "ctrl"}, "Up", function()
   local win = hs.window.focusedWindow()
   local f = win:frame()
-  win:moveOneScreenEast()
+  win:moveOneScreenNorth()
 end)
 
---handoff to Laptop--
+--Handoff to Lower Monitor--
+hs.hotkey.bind({"cmd", "ctrl"}, "Down", function()
+  local win = hs.window.focusedWindow()
+  local f = win:frame()
+  win:moveOneScreenSouth()
+end)
+
+--Handoff to Left Monitor--
 hs.hotkey.bind({"cmd", "ctrl"}, "Left", function()
   local win = hs.window.focusedWindow()
   local f = win:frame()
   win:moveOneScreenWest()
+end)
+
+--handoff to Right Monitor--
+hs.hotkey.bind({"cmd", "ctrl"}, "Right", function()
+  local win = hs.window.focusedWindow()
+  local f = win:frame()
+  win:moveOneScreenEast()
 end)
 
 --Special Layouts--
